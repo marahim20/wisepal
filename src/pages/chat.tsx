@@ -10,6 +10,10 @@ import styles from "../styles/Chat.module.css";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import CircularProgress from "@mui/material/CircularProgress";
+import Header from './Header';
+import Footer from './Footer';
+
+
 
 export default function Chat() {
   const router = useRouter();
@@ -107,27 +111,15 @@ export default function Chat() {
   };
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Head>
         <title>WisePal</title>
         <meta name="description" content="WisePal interface" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.topnav}>
-        <div className={styles.navlogo}>
-          <a href="/">WisePal</a>
-        </div>
-        <div className="category">
-          <h4>{category}</h4>
-        </div>
-        <div className={styles.navlinks}>
-          <a href="mailto:sohail21400@gmail.com" target="_blank">
-            Contact
-          </a>
-          {/* <a href="https://instagram.com/sohail21400" target="_blank">Instagram</a> */}
-        </div>
-      </div>
+      <Header category={category} />
+
       <main className={styles.main}>
         <div className={styles.cloud}>
           <div ref={messageListRef} className={styles.messagelist}>
@@ -179,7 +171,7 @@ export default function Chat() {
         </div>
         <div className={styles.center}>
           <div className={styles.cloudform}>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="flex justify-between">
               <textarea
                 disabled={loading}
                 onKeyDown={handleEnter}
@@ -219,7 +211,7 @@ export default function Chat() {
               </button>
             </form>
           </div>
-          <footer className={styles.footer}>
+          {/* <footer className={styles.footer}>
             <p>
               Your{" "}
               <a href="mailto:sohail21400@gmail.com" target="_blank">
@@ -227,10 +219,11 @@ export default function Chat() {
               </a>{" "}
               is appreciated!
             </p>
-          </footer>
+          </footer> */}
         </div>
       </main>
-    </>
+      <Footer />
+    </div>
   );
 
   // return (

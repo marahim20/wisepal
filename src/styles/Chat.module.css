@@ -1,10 +1,14 @@
 .main {
+  flex-grow: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
   font-size: 0.9rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .header {
@@ -60,14 +64,14 @@
 
 .cloudform {
   position: relative;
+  width: 100%;
 }
 
 .textarea {
-  position: relative;
   resize: none;
   font-size: 1rem;
   padding: 1rem 2rem 1rem 2rem;
-  width: 75vw;
+  width: 100%;
   border-radius: 0.5rem;
   border: 1px solid #30373d;
   background: #0e1524;
@@ -119,9 +123,10 @@
 }
 
 .messagelist {
+  margin-bottom: auto;
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   border-radius: 0.5rem;
 }
 
@@ -153,6 +158,7 @@
   0% {
     background-position: -100% 0;
   }
+
   100% {
     background-position: 100% 0;
   }
@@ -169,6 +175,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -217,17 +224,19 @@
 }
 
 .center {
+  width:100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  padding: 2rem 0;
+  /* position: relative; */
+  padding: 0 0;
+  margin-top: 1rem;
   flex-direction: column;
 }
 
 .cloud {
-  width: 75vw;
-  height: 70vh;
+  flex-grow: 1;
+  width: 100%;
   background: #0e1524;
   border-radius: 0.5rem;
   border: 1px solid #30373d;
@@ -266,17 +275,19 @@
 @media (max-width: 600px) {
   .main {
     padding: 1rem;
-    max-height: 80vh;
+    max-height: 100vh;
   }
 
   .cloud {
     width: 22rem;
     height: 35rem;
   }
+
   .textarea {
     width: 22rem;
     font-size: 0.9rem;
   }
+
   .topnav {
     border: 1px solid black;
     align-items: center;
