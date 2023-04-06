@@ -1,23 +1,16 @@
-// TODO: focus on the text field on load
-// TODO: display the category in the chat window
-// TODO: inject persona system message
-// TODO: 
-
 import { useState, useRef, useEffect } from "react";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import Head from "next/head";
 import styles from "../styles/Chat.module.css";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import CircularProgress from "@mui/material/CircularProgress";
-import Header from './Header';
-import Footer from './Footer';
-
-
+import Header from "./Header";
+import Footer from "./Footer";
 
 export default function Chat() {
   const router = useRouter();
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState("");
 
   const [userInput, setUserInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -32,13 +25,16 @@ export default function Chat() {
   }, [router.query]);
 
   const messageListRef = useRef(null);
-  const textAreaRef = useRef(null);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   // Focus on text field on load
-  // useEffect(() => {
-  //   textAreaRef.current.focus();
-  // }, []);
+  useEffect(() => {
+    if (textAreaRef.current) {
+      textAreaRef.current.focus();
+    }
+  }, []);
 
+  
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
@@ -56,12 +52,14 @@ export default function Chat() {
       },
       body: JSON.stringify({
         context,
-        category
+        category,
       }),
     });
 
     if (!response.ok) {
-      throw new Error(response.statusText + " " + response.body + " " + response.status);
+      throw new Error(
+        response.statusText + " " + response.body + " " + response.status
+      );
     }
 
     // This data is a ReadableStream
