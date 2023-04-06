@@ -96,9 +96,8 @@
 }
 
 .loadingwheel {
-  position: absolute;
-  top: 0.2rem;
-  right: 0.25rem;
+  margin-right: 1.5rem;
+  border: none;
 }
 
 .svgicon {
@@ -120,7 +119,8 @@
 }
 
 .messagelist {
-  margin-bottom: auto;
+  align-self: start;
+  /* margin-bottom: auto; */
   width: 100%;
   height: 100%;
   overflow-y: auto;
@@ -212,6 +212,8 @@
 .usericon {
   margin-right: 1rem;
   border-radius: 0.1rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .markdownanswer h1,
