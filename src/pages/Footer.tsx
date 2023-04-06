@@ -1,5 +1,5 @@
 // Footer.tsx
-import React from 'react';
+import React from "react";
 
 const Footer: React.FC = () => {
   return (
@@ -7,9 +7,13 @@ const Footer: React.FC = () => {
       {/* <p className="text-sm">
         &copy; {new Date().getFullYear()} WisePal. All rights reserved.
       </p> */}
-      <p className='text-sm'>
+      <p className="text-sm text-gray-500">
         Your{" "}
-        <a href="mailto:sohail21400@gmail.com" target="_blank">
+        <a
+          href="mailto:sohail21400@gmail.com"
+          target="_blank"
+          className="text-gray-300"
+        >
           feedback
         </a>{" "}
         is appreciated!

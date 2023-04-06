@@ -34,7 +34,6 @@ export default function Chat() {
     }
   }, []);
 
-  
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
@@ -169,7 +168,10 @@ export default function Chat() {
         </div>
         <div className={styles.center}>
           <div className={styles.cloudform}>
-            <form onSubmit={handleSubmit} className="flex justify-between">
+            <form
+              onSubmit={handleSubmit}
+              className="flex justify-between items-center border border-[#30373d] rounded-lg"
+            >
               <textarea
                 disabled={loading}
                 onKeyDown={handleEnter}
@@ -231,13 +233,12 @@ export default function Chat() {
   //       onChange={(e) => setInput(e.target.value)}
   //       rows={4}
   //       maxLength={200}
-  //       className="focus:ring-neu w-full rounded-md border border-neutral-400
-  //        p-4 text-neutral-900 shadow-sm placeholder:text-neutral-400 focus:border-neutral-900"
+  //       className="w-full p-4 border rounded-md shadow-sm focus:ring-neu border-neutral-400 // text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900"
   //       placeholder={"e.g. What is React?"}
   //     />
   //     {!loading ? (
   //       <button
-  //         className="w-full rounded-xl bg-neutral-900 px-4 py-2 font-medium text-white hover:bg-black/80"
+  //         className="w-full px-4 py-2 font-medium text-white rounded-xl bg-neutral-900 hover:bg-black/80"
   //         onClick={(e) => generateResponse(e)}
   //       >
   //         Generate Response &rarr;
@@ -245,13 +246,13 @@ export default function Chat() {
   //     ) : (
   //       <button
   //         disabled
-  //         className="w-full rounded-xl bg-neutral-900 px-4 py-2 font-medium text-white"
+  //         className="w-full px-4 py-2 font-medium text-white rounded-xl bg-neutral-900"
   //       >
-  //         <div className="animate-pulse font-bold tracking-widest">...</div>
+  //         <div className="font-bold tracking-widest animate-pulse">...</div>
   //       </button>
   //     )}
   //     {response && (
-  //       <div className="mt-8 rounded-xl border bg-white p-4 shadow-md transition hover:bg-gray-100">
+  //       <div className="p-4 mt-8 transition bg-white border shadow-md rounded-xl hover:bg-gray-100">
   //         {response}
   //       </div>
   //     )}
