@@ -56,7 +56,7 @@ export default function Chat() {
       },
       body: JSON.stringify({
         context,
-        // prompt,
+        category
       }),
     });
 

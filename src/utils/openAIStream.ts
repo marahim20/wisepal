@@ -25,7 +25,9 @@ export interface OpenAIStreamPayload {
 
 export async function OpenAIStream(payload: OpenAIStreamPayload) {
   // printing all the messages in the console
-  console.log(payload.messages);
+  console.log("MESSAGE", payload.messages);
+  console.log("TEMPERATURE", payload.temperature);
+  console.log("\n");
 
 
   const encoder = new TextEncoder();
