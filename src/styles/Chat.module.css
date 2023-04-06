@@ -73,7 +73,6 @@
   padding: 1rem 2rem 1rem 2rem;
   width: 100%;
   border-radius: 0.5rem;
-  border: 1px solid #30373d;
   background: #0e1524;
   color: #ececf1;
   outline: none;
@@ -88,12 +87,10 @@
 }
 
 .generatebutton {
-  position: absolute;
-  top: 0.87rem;
-  right: 1rem;
   color: rgb(165, 162, 162);
   background: none;
-  padding: 0.3rem;
+  margin: 1rem;
+  margin-right: 1.5rem;
   border: none;
   display: flex;
 }
@@ -224,7 +221,7 @@
 }
 
 .center {
-  width:100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
