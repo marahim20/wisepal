@@ -12,7 +12,7 @@ export default function Chat() {
   const router = useRouter();
   const [category, setCategory] = useState("");
 
-  const [userInput, setUserInput] = useState("");
+  var [userInput, setUserInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([
     { role: "assistant", content: "Hi there! How can I help?" },
@@ -40,6 +40,9 @@ export default function Chat() {
     if (userInput.trim() === "") {
       return;
     }
+    // Capitalize the first letter of the user input
+    userInput = userInput.charAt(0).toUpperCase() + userInput.slice(1);
+
     setLoading(true);
     const context = [...messages, { role: "user", content: userInput }];
     setMessages(context);
