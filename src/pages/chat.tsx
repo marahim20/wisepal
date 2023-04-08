@@ -111,7 +111,7 @@ export default function Chat() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col max-h-screen">
       <Head>
         <title>WisePal</title>
         <meta name="description" content="WisePal interface" />
