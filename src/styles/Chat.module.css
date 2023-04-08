@@ -135,9 +135,9 @@
 }
 
 .usermessage {
-  background: #0e1524;
+  background: #0e1524; /* this is where you change the background-colour for user chat */
   padding: 1.5rem;
-  color: #ececf1;
+  color: #ececf1; /* this is where you change the text-colour for user chat */
 }
 
 .usermessagewaiting {
@@ -162,10 +162,10 @@
 }
 
 .apimessage {
-  background: #1d2333;
+  background: #1d2333; /* this is where you change the background-colour for ai chat */
   padding: 1.5rem;
-  color: #ececf1;
-  animation: fadein 0.5s;
+  color: #ececf1; /* this is where you change the text-colour for ai chat */
+  animation: fadein 0.5s; 
 }
 
 @keyframes fadein {

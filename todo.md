@@ -13,4 +13,3 @@
 11. box in the centre of webpage is not a scrollable list (noticible when the message list grows). the chat page should have the size of the device. and the chat box should be able to scroll: DONE (need validation!)
 12. add system message variable file. always take category and system message from that file. it would be easy to update: DONE
 13. add auto first letter caps on user input: DONE
-    

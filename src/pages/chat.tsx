@@ -214,15 +214,6 @@ export default function Chat() {
               </button>
             </form>
           </div>
-          {/* <footer className={styles.footer}>
-            <p>
-              Your{" "}
-              <a href="mailto:sohail21400@gmail.com" target="_blank">
-                feedback
-              </a>{" "}
-              is appreciated!
-            </p>
-          </footer> */}
         </div>
       </main>
       <Footer />
