@@ -124,6 +124,7 @@
   align-self: start;
   /* margin-bottom: auto; */
   width: 100%;
+  overflow-y: auto;
   height: 100%;
   /* overflow-y: auto; */
   border-radius: 0.5rem;

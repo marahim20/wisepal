@@ -15,7 +15,7 @@ export default function Chat() {
   var [userInput, setUserInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([
-    { role: "assistant", content: "Hi there! How can I help?" },
+    { role: "assistant", content: "Hey." },
   ]);
 
   useEffect(() => {
@@ -24,8 +24,22 @@ export default function Chat() {
     }
   }, [router.query]);
 
-  const messageListRef = useRef(null);
+  useEffect(() => {
+    async function logIP() {
+      try {
+        const response = await fetch('/api/log-ip');
+        const data = await response.json();
+        console.log(`Unique IP count: ${data.uniqueIPCount}`);
+      } catch (error) {
+        console.error('Error logging IP:', error);
+      }
+    }
+
+    logIP();
+  }, []);
+
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const messageListRef = useRef<HTMLDivElement>(null); // Explicitly set the type to HTMLDivElement
 
   // Focus on text field on load
   useEffect(() => {
@@ -33,6 +47,37 @@ export default function Chat() {
       textAreaRef.current.focus();
     }
   }, []);
+
+  // Add this useEffect to scroll to the bottom of the message list when messages change
+  useEffect(() => {
+    if (messageListRef.current) {
+      const messageList = messageListRef.current;
+      messageList.scrollTop = messageList.scrollHeight;
+    }
+  }, [messages]);
+
+  // log function
+  const logMessage = async (
+    role: string,
+    message: string,
+    category: string
+  ) => {
+    try {
+      await fetch("/api/logMessage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          role,
+          message,
+          category,
+        }),
+      });
+    } catch (error) {
+      console.error("Error logging message:", error);
+    }
+  };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -46,6 +91,9 @@ export default function Chat() {
     setLoading(true);
     const context = [...messages, { role: "user", content: userInput }];
     setMessages(context);
+
+    // log user input
+    await logMessage("user", userInput, category);
 
     const response = await fetch("/api/generate", {
       method: "POST",
@@ -72,12 +120,10 @@ export default function Chat() {
     const reader = data.getReader();
     const decoder = new TextDecoder();
     let done = false;
-
     while (!done) {
       const { value, done: doneReading } = await reader.read();
       done = doneReading;
       const chunkValue = decoder.decode(value);
-      // setResponse((prev) => prev + chunkValue);
 
       setMessages((prevMessages) => {
         const lastMessage = prevMessages[prevMessages.length - 1];
@@ -219,37 +265,4 @@ export default function Chat() {
       <Footer />
     </div>
   );
-
-  // return (
-  //   <div className="w-full max-w-xl">
-  //     <textarea
-  //       value={userInput}
-  //       onChange={(e) => setInput(e.target.value)}
-  //       rows={4}
-  //       maxLength={200}
-  //       className="w-full p-4 border rounded-md shadow-sm focus:ring-neu border-neutral-400 // text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900"
-  //       placeholder={"e.g. What is React?"}
-  //     />
-  //     {!loading ? (
-  //       <button
-  //         className="w-full px-4 py-2 font-medium text-white rounded-xl bg-neutral-900 hover:bg-black/80"
-  //         onClick={(e) => generateResponse(e)}
-  //       >
-  //         Generate Response &rarr;
-  //       </button>
-  //     ) : (
-  //       <button
-  //         disabled
-  //         className="w-full px-4 py-2 font-medium text-white rounded-xl bg-neutral-900"
-  //       >
-  //         <div className="font-bold tracking-widest animate-pulse">...</div>
-  //       </button>
-  //     )}
-  //     {response && (
-  //       <div className="p-4 mt-8 transition bg-white border shadow-md rounded-xl hover:bg-gray-100">
-  //         {response}
-  //       </div>
-  //     )}
-  //   </div>
-  // );
 }

@@ -9,39 +9,6 @@ import Footer from "./Footer";
 export default function Home() {
   const router = useRouter();
 
-  const categories = [
-    {
-      title: "Imam",
-      description: "Lorem ipsum dolor sit amet.",
-      image: "/homepage_images/1.jpg",
-    },
-    {
-      title: "Andrew Tate",
-      description: "Lorem ipsum dolor sit amet.",
-      image: "/homepage_images/2.jpg",
-    },
-    {
-      title: "Doctor",
-      description: "Lorem ipsum dolor sit amet.",
-      image: "/homepage_images/3.jpg",
-    },
-    {
-      title: "Lawyer",
-      description: "Lorem ipsum dolor sit amet.",
-      image: "/homepage_images/4.jpg",
-    },
-    {
-      title: "Gas Lighter",
-      description: "Lorem ipsum dolor sit amet.",
-      image: "/homepage_images/5.jpg",
-    },
-    {
-      title: "Elon Musk",
-      description: "Lorem ipsum dolor sit amet.",
-      image: "/homepage_images/1.jpg",
-    },
-  ];
-
   const handleClick = (item: any) => {
     router.push(`/chat?category=${item["category"]}`);
   };
