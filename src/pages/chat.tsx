@@ -111,7 +111,7 @@ export default function Chat() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col max-h-screen">
       <Head>
         <title>WisePal</title>
         <meta name="description" content="WisePal interface" />
@@ -214,15 +214,6 @@ export default function Chat() {
               </button>
             </form>
           </div>
-          {/* <footer className={styles.footer}>
-            <p>
-              Your{" "}
-              <a href="mailto:sohail21400@gmail.com" target="_blank">
-                feedback
-              </a>{" "}
-              is appreciated!
-            </p>
-          </footer> */}
         </div>
       </main>
       <Footer />
