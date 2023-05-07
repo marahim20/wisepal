@@ -24,20 +24,6 @@ export default function Chat() {
     }
   }, [router.query]);
 
-  useEffect(() => {
-    async function logIP() {
-      try {
-        const response = await fetch('/api/log-ip');
-        const data = await response.json();
-        console.log(`Unique IP count: ${data.uniqueIPCount}`);
-      } catch (error) {
-        console.error('Error logging IP:', error);
-      }
-    }
-
-    logIP();
-  }, []);
-
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const messageListRef = useRef<HTMLDivElement>(null); // Explicitly set the type to HTMLDivElement
 
