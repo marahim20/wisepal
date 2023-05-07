@@ -3,8 +3,8 @@ import React from "react";
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import systemMessages from "./api/systemMessages";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const router = useRouter();
